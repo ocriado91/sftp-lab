@@ -20,12 +20,13 @@ spec:
           ports:
             - containerPort: 22
           securityContext:
-            allowPrivilegeEscalation: false
             capabilities:
               drop:
                 - ALL
               add:
                 - NET_BIND_SERVICE
+                - CHOWN
+                - SETFCAP
           env:
             - name: SFTP_USERS
               value: {{ .Values.sftp.users | quote }}
@@ -34,9 +35,13 @@ spec:
               mountPath: /home
             - name: run
               mountPath: /var/run/sftp
+            - name: ssh-keys
+              mountPath: /etc/ssh
       volumes:
         - name: data
           persistentVolumeClaim:
             claimName: {{ .Release.Name }}-data
         - name: run
+          emptyDir: {}
+        - name: ssh-keys
           emptyDir: {}
