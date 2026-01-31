@@ -1,0 +1,15 @@
+image:
+  repository: ghcr.io/linuxserver/proftpd
+  tag: latest
+
+service:
+  type: NodePort
+  port: 22
+  nodePort: 2223
+
+persistence:
+  enabled: true
+  size: 5Gi
+
+sftp:
+  serverName: "ProFTPD Dev SFTP"

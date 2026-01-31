@@ -1,0 +1,4 @@
+helmCharts:
+  - name: proftpd
+    releaseName: proftpd
+    valuesFile: values-dev.yaml

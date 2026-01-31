@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-config
+data:
+  proftpd.conf: |
+    ServerName {{ .Values.sftp.serverName | default "ProFTPD Server" }}
+    DefaultRoot ~
+
+    LoadModule mod_sftp.c
+    SFTPEngine on
+    SFTPLog /var/log/sftp.log
+    SFTPHostKey /config/ssh_host_rsa_key

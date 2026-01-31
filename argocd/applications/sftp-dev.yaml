@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sftp-dev
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/ocriado91/sftp-lab.git
+    targetRevision: main
+    path: charts/sftp
+    helm:
+      valueFiles:
+        - ../../overlays/dev/values-dev.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: sftp-dev
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
