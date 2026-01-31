@@ -82,4 +82,33 @@ To perform a dry-run in local:
  ```
 
 ## 5. Configure Argo CD
-TBC
+### a) Perform a `port-forward` to Argo CD service
+```bash
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+```
+
+### b) Login to Argo CD
+```bash
+argocd login localhost:8080
+```
+
+### c) Add Github repository
+```bash
+argocd repo add https://github.com/ocriado91/sftp-lab.git
+```
+
+### d) Check repository
+```bash
+argocd repo list
+```
+
+### e) Apply Argo CD application
+```bash
+kubectl apply -f argocd/applications/sftp-dev.yaml
+```
+
+### f) Check Argo CD application
+```bash
+argocd app list
+argocd app get sftp-dev
+```

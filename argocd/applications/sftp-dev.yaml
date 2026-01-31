@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/ocriado91/sftp-lab.git
     targetRevision: main
-    path: charts/sftp
+    path: charts/proftpd
     helm:
       valueFiles:
         - ../../overlays/dev/values-dev.yaml
