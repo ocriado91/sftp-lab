@@ -112,3 +112,16 @@ kubectl apply -f argocd/applications/sftp-dev.yaml
 argocd app list
 argocd app get sftp-dev
 ```
+
+## 6. MetalLB installation
+
+### a) Install MetalLB into cluster
+```bash
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.15.3/config/manifests/metallb-native.yaml
+```
+
+### b) Apply MetalLB into cluster
+We can define the IP range through MetalLB configuration defined into `resources/metallb/metallb-config.yaml`:
+```bash
+kubectl apply -f resources/metallb/metallb-config.yaml
+```
