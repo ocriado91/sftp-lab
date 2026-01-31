@@ -28,13 +28,9 @@ spec:
               mountPath: /home
             - name: run
               mountPath: /var/run/sftp
-            - name: ssh-keys
-              mountPath: /etc/ssh
       volumes:
         - name: data
           persistentVolumeClaim:
             claimName: {{ .Release.Name }}-data
         - name: run
-          emptyDir: {}
-        - name: ssh-keys
           emptyDir: {}
