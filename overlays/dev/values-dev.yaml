@@ -5,7 +5,7 @@ image:
 service:
   port: 22
   targetPort: 2223
-  loadBalancerIP: "172.18.10.100"
+  loadBalancerIP: "172.18.10.101"
 
 persistence:
   enabled: true
