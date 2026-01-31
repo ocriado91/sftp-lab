@@ -3,7 +3,7 @@ image:
   tag: latest
 
 service:
-  externalPort: 22
+  externalPort: 2223
   containerPort: 22
   loadBalancerIP: "172.18.10.101"
 
