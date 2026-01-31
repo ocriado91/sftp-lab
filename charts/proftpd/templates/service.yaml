@@ -5,8 +5,8 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: {{ .Values.service.targetPort }}
+    - port: {{ .Values.service.externalPort }}
+      targetPort: {{ .Values.service.containerPort }}
   selector:
     app: {{ .Release.Name }}
   loadBalancerIP: {{ .Values.service.loadBalancerIP | quote }}
