@@ -17,4 +17,4 @@ securityContext:
 
 sftp:
   enabled: true
-  serverName: "ProFTPD SFTP"
+  users: "sftpuser:changeme:1000:1000"

@@ -28,19 +28,13 @@ spec:
                 - ALL
               add:
                 - NET_BIND_SERVICE
+          env:
+            - name: USERS
+              value: {{ .Values.sftp.users | quote }}
           volumeMounts:
             - name: data
               mountPath: /home
-            - name: config
-              mountPath: /config
-            - name: run
-              mountPath: /var/run/sftp
       volumes:
         - name: data
           persistentVolumeClaim:
             claimName: {{ .Release.Name }}-data
-        - name: config
-          configMap:
-            name: {{ .Release.Name }}-config
-        - name: run
-          emptyDir: {}
