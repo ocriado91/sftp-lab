@@ -9,4 +9,4 @@ spec:
       targetPort: {{ .Values.service.targetPort }}
   selector:
     app: {{ .Release.Name }}
-  loadBalancerIP: {{ .Values.service.LoadBalancerIP | quote }}
+  loadBalancerIP: {{ .Values.service.loadBalancerIP | quote }}
