@@ -3,8 +3,8 @@ image:
   tag: latest
 
 service:
-  port: 22
-  targetPort: 2223
+  port: 2223
+  targetPort: 22
   loadBalancerIP: "172.18.10.101"
 
 persistence:
