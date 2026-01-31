@@ -3,9 +3,9 @@ image:
   tag: latest
 
 service:
-  type: NodePort
+  type: LoadBalancer
   port: 22
-  nodePort: 30223
+  targetPort: 22
 
 persistence:
   enabled: true

@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: {{ .Release.Name }}
 spec:
-  type: {{ .Values.service.type }}
+  type: LoadBalancer
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: 22
-      nodePort: {{ .Values.service.nodePort }}
+      targetPort: {{ .Values.service.targetPort }}
   selector:
     app: {{ .Release.Name }}
+  loadBalancerIP: {{ .Values.service.LoadBalancerIP | quote }}
