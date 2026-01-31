@@ -34,7 +34,11 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /home
+            - name: run
+              mountPath: /var/run/sftp
       volumes:
         - name: data
           persistentVolumeClaim:
             claimName: {{ .Release.Name }}-data
+        - name: run
+          emptyDir: {}
