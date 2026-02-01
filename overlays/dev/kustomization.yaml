@@ -1,4 +1,4 @@
 helmCharts:
-  - name: proftpd
-    releaseName: proftpd
+  - name: sftp-dev
+    releaseName: sftp-dev
     valuesFile: values-dev.yaml
