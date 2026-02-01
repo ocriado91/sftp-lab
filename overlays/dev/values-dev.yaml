@@ -13,4 +13,4 @@ persistence:
 
 sftp:
   serverName: "ProFTPD Dev SFTP"
-  users: "sftpuser:changeme:1000:1000"
+  users: "sftpuser:changeme:1000:1000:/home/sftp-data"
