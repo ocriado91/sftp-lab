@@ -25,7 +25,7 @@ spec:
               value: {{ .Values.sftp.users | quote }}
           volumeMounts:
             - name: data
-              mountPath: /home
+              mountPath: /home/sftp-data
             - name: run
               mountPath: /var/run/sftp
       volumes:
